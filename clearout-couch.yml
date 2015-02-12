@@ -1,0 +1,23 @@
+---
+- hosts: all
+  remote_user: pi
+  sudo: no
+  
+  vars:
+    couchdb_data_dir: /home/pi/couchdb/dev/lib  
+  
+  tasks:
+    
+    - name: stop couchdb
+      service: name=couchdb state=stopped
+      sudo: yes
+      
+    - name: stop flasher
+      service: name=flasher state=stopped
+      sudo: yes
+    
+    - name: remove old databases
+      shell: rm -rf *
+      args: 
+        chdir: '{{ couchdb_data_dir }}'
+ 

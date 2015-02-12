@@ -1,0 +1,45 @@
+---
+- hosts: all
+  remote_user: pi
+  sudo: no
+  
+  vars:
+  
+  tasks:
+
+    - name: register node 0
+      shell: curl -X PUT http://127.0.0.1:15986/nodes/pi@10.11.12.100 -d {}   
+ 
+    - name: register node 1
+      shell: curl -X PUT http://127.0.0.1:15986/nodes/pi@10.11.12.101 -d {}   
+
+    - name: register node 2
+      shell: curl -X PUT http://127.0.0.1:15986/nodes/pi@10.11.12.102 -d {}   
+
+    - name: register node 3
+      shell: curl -X PUT http://127.0.0.1:15986/nodes/pi@10.11.12.103 -d {}   
+
+    - name: register node 4
+      shell: curl -X PUT http://127.0.0.1:15986/nodes/pi@10.11.12.104 -d {}   
+
+    - name: register node 5
+      shell: curl -X PUT http://127.0.0.1:15986/nodes/pi@10.11.12.105 -d {}   
+
+    - name: register node 6
+      shell: curl -X PUT http://127.0.0.1:15986/nodes/pi@10.11.12.106 -d {}   
+
+    - name: register node 7
+      shell: curl -X PUT http://127.0.0.1:15986/nodes/pi@10.11.12.107 -d {}   
+
+    - name: register node 8
+      shell: curl -X PUT http://127.0.0.1:15986/nodes/pi@10.11.12.108 -d {}   
+
+    - name: register node 9
+      shell: curl -X PUT http://127.0.0.1:15986/nodes/pi@10.11.12.109 -d {}   
+
+    - name: register node 10
+      shell: curl -X PUT http://127.0.0.1:15986/nodes/pi@10.11.12.110 -d {}   
+
+    - name: register node 11
+      shell: curl -X PUT http://127.0.0.1:15986/nodes/pi@10.11.12.111 -d {}   
+

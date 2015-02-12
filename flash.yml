@@ -1,0 +1,14 @@
+---
+- hosts: all
+  remote_user: pi
+  sudo: yes
+  
+  tasks:
+    - name: flash all pis
+      shell:  node flasher.js --oneoff --ms 2000
+      args:
+        chdir: /home/pi/flasher
+    
+
+
+ 

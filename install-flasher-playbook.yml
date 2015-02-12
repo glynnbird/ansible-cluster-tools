@@ -1,0 +1,20 @@
+---
+- hosts: all
+  remote_user: pi
+  sudo: no
+  
+  vars:
+    flasher_install_dir: /home/pi/flasher
+    flasher_version: master
+
+  tasks:
+    - include: tasks/install-flasher.yml   
+        
+    - name: copy init.d script
+      copy: src=scripts/flasher dest=/etc/init.d owner=root group=root mode=755
+      sudo: yes
+      
+    - name: start flasher
+      service: name=flasher state=started enabled=yes    
+      sudo: yes    
+

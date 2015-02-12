@@ -1,0 +1,11 @@
+---
+- hosts: all
+  remote_user: pi
+  sudo: yes
+  
+  tasks:
+    - name: reboot all nodes
+      shell: init 6
+
+
+ 

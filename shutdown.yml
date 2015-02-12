@@ -1,0 +1,11 @@
+---
+- hosts: all
+  remote_user: pi
+  sudo: yes
+  
+  tasks:
+    - name: shutdown all nodes
+      shell: init 0
+
+
+ 

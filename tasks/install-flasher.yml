@@ -1,0 +1,7 @@
+- name: download flasher from git
+  git: repo=git://github.com/glynnbird/flasher.git dest={{ flasher_install_dir }} accept_hostkey=yes version={{ flasher_version }} update=yes
+
+- name: install flasher npm modules
+  npm: path={{ flasher_install_dir }}
+  
+  
