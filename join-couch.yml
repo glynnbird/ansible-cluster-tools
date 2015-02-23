@@ -43,3 +43,5 @@
     - name: register node 11
       shell: curl -X PUT http://127.0.0.1:15986/nodes/pi@10.11.12.111 -d {}   
 
+    - name: remove default local node
+      shell: curl -X DELETE 'http://127.0.0.1:15986/nodes/node1@127.0.0.1?rev=1-967a00dff5e02add41819138abb3284d'

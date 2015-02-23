@@ -1,0 +1,15 @@
+---
+- hosts: all
+  remote_user: pi
+  sudo: no
+  
+  vars:
+    couchdb_dev_dir: /home/pi/couchdb/dev 
+    couchdb_etc_dir: /home/pi/couchdb/dev/lib/node1/etc
+    couchdb_home: /home/pi/couchdb  
+  
+  tasks:
+       
+    - name: stop couchdb
+      service: name=couchdb state=stopped   
+      sudo: yes

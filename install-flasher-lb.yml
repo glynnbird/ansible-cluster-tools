@@ -1,0 +1,28 @@
+---
+- hosts: all
+  remote_user: pi
+  sudo: no
+  
+  vars:
+    flasher_install_dir: /home/pi/flasher
+    flasher_version: master
+
+  tasks:
+    
+    - name: download flasher from git
+      git: repo=git://github.com/glynnbird/flasher.git dest={{ flasher_install_dir }} accept_hostkey=yes version={{ flasher_version }} update=yes
+
+    - name: install flasher npm modules
+      npm: path={{ flasher_install_dir }}
+      
+    - name: copy flasherdaemonlb.sh script
+      copy: src=scripts/flasherdaemonlb.sh dest=/home/pi/flasher/flasherdaemonlb.sh owner=pi group=pi mode=755      
+        
+    - name: copy init.d script
+      copy: src=scripts/flasherlb dest=/etc/init.d owner=root group=root mode=755
+      sudo: yes
+      
+    - name: start flasherlb
+      service: name=flasherlb state=started enabled=yes    
+      sudo: yes    
+

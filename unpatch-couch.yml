@@ -1,0 +1,14 @@
+---
+- hosts: all
+  remote_user: pi
+  sudo: no
+  
+  vars:
+  
+  tasks:
+    
+    - name: unpatch
+      shell: git checkout fabric_rpc.erl
+      args:
+        chdir: /home/pi/couchdb/src/fabric/src/
+  

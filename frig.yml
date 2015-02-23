@@ -1,0 +1,34 @@
+---
+- hosts: all
+  remote_user: pi
+  sudo: no
+  
+  vars:
+  
+  tasks:
+  
+    - name: copy tar.gz
+      copy: src=couchdb-snap.tar.gz dest=/home/pi
+      
+    - name: shutdown couchdb
+      service: name=couchdb state=stopped   
+      sudo: yes  
+      
+    - name: mv couchdb out of the way
+      shell: mv couchdb _couchdb 
+      args:
+        chdir: /home/pi
+   
+    - name: unpack couchdb 
+      shell: tar -xzvf couchdb-snap.tar.gz
+      args: 
+        chdir: /home/pi
+        
+    - name: remove old databases
+      shell: rm -rf *
+      args: 
+        chdir: /home/pi/couchdb/dev/lib        
+      
+    - name: start couchdb
+      service: name=couchdb state=started enabled=yes    
+      sudo: yes
