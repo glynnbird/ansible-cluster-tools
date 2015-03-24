@@ -1,0 +1,17 @@
+---
+- hosts: all
+  remote_user: pi
+  sudo: no
+  
+  vars:
+  
+  tasks:
+  
+    - name: copy serial.py to the Pi
+      template: src=scripts/serial.py dest=/home/pi/
+      
+
+    - name: run the script
+      shell: python serial.py couch
+      args: 
+        chdir: /home/pi
