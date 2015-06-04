@@ -10,15 +10,15 @@
     - name: copy customised fabric rpc handler that outputs "FLASH" log messages
       template: src=scripts/fabric_rpc.erl dest=/home/pi/couchdb/src/fabric/src/
       
-    - name: shutdown couchdb
-      service: name=couchdb state=stopped   
-      sudo: yes      
+#    - name: shutdown couchdb
+#      service: name=couchdb state=stopped   
+#      sudo: yes      
 
     - name: make couchdb again 
       shell: make couch
       args: 
         chdir: /home/pi/couchdb
       
-    - name: start couchdb
-      service: name=couchdb state=started enabled=yes    
-      sudo: yes
+#    - name: start couchdb
+#      service: name=couchdb state=started enabled=yes    
+#      sudo: yes

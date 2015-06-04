@@ -9,9 +9,9 @@
 
   tasks:
     
-    - name: stop flasher
-      service: name=flasher state=stopped    
-      sudo: yes
+#    - name: stop flasher
+#      service: name=flasher state=stopped    
+#      sudo: yes
       
     - name: download flasher from git
       git: repo=git://github.com/glynnbird/flasher.git dest={{ flasher_install_dir }} accept_hostkey=yes version={{ flasher_version }} update=yes
